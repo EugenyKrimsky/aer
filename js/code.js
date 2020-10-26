@@ -47,6 +47,7 @@ $(document).ready(function() {
 
 if (get_name_browser() == "Safari") {
 	$('.catalog-container').css('max-width', '885px');
+	$('.warning__text').css('font-size', '15px');
 }
 
 })
