@@ -32,6 +32,37 @@ $(document).ready(function() {
 			$('.acitem2').not($(this).next()).slideUp(300);
 		}
 	})
+	$(window).scroll(function(){
+        if ($(this).scrollTop() > 100) {
+            $('.scrollup').fadeIn();
+        } else {
+            $('.scrollup').fadeOut();
+        }
+        });
+         
+        $('.scrollup').click(function(){
+        $("html, body").animate({ scrollTop: 0 }, 600);
+        return false;
+    });
+    const menuBtn = $('.btn-search'),
+    menu = $('.input-search');
+
+    menuBtn.on('click', function() {
+        if ( $(this).hasClass('is-active') ) {
+            $(this).removeClass('is-active');
+            menu.slideUp();
+        } else {
+            $(this).addClass('is-active');
+            menu.slideDown();
+        }
+    }); 
+    $(document).click(function (e) {
+        if ( !menuBtn.is(e.target) && !menu.is(e.target) && menu.has(e.target).length === 0) {
+            menu.slideUp();
+            menuBtn.removeClass('is-active');
+        };
+
+    });   
 	function get_name_browser(){
     // получаем данные userAgent
     var ua = navigator.userAgent;    
